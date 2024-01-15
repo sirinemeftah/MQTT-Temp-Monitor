@@ -18,7 +18,7 @@ The publisher is responsible for sending temperature data to the MQTT broker.
 ## Subscriber
 open the html file by choosing the option "open with live server"
 
-##MQTT Broker
+## MQTT Broker
 run your MQTT broker
 ```bash
 cd C:\Program Files\mosquitto
