@@ -66,6 +66,7 @@ function connectToBroker() {
       parsedMessage= parsedMessage +` Temperature alert! The temperature is greater than ${seuil}.`;
     }
     messageTextArea.value += parsedMessage + "\r\n";
+    messageTextArea.scrollTop = messageTextArea.scrollHeight;
   });
 }
 
