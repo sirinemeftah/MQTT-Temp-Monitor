@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="temperature-widget">
+        <div class="current-temperature">
+            <span id="temperatureValue">21</span>°
+        </div>
+        <div class="temperature-graph">
+            <canvas id="temperatureGraph" width="400" height="200"></canvas>
+        </div>
+        <div class="temperature-history">
+            Temperature during the last 24h
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,75 +1,106 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-.line {
-  border: 3px solid red;
-  width: 200px;
-}
-/****** Styling for the Layout ***********/
-.wrapper {
-  background-color: rgb(247, 244, 244);
-  list-style-type: none;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #181818;
+  margin: 0;
   padding: 0;
-  border-radius: 5px;
-}
-.form-row {
+  color: #ffffff;
   display: flex;
-  justify-content: flex-end;
-  padding: 0.5em;
+  justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
-.form-row > label {
-  padding: 1em;
-  flex: 1;
-  font-size: 1.2em;
-  font-weight: bold;
+.titles{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15vw ,5vh ;
+  width: 60vw;
 }
-.form-row > input,
-.form-row > textarea {
-  flex: 2;
+h1 {
+  color: #FF6000;
+  font-size: 60px;
+  margin-bottom: 0;
 }
-.form-row > input,
-.form-row > button,
-.form-row > textarea {
-  padding: 0.5em;
-  resize: vertical;
-  margin: 10px 0;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-  border-radius: 10px;
-  font-size: 1.2em;
+h2{
+  font-size: 18px;
+  color: #666666;
+  font-style: italic;
+  font-weight: 100;
+  margin-top: 3px;
 }
-.form-row > textarea {
-  font-size: 1.5em;
-  background-color: rgb(242, 248, 248);
-  text-align: center;
-  font-weight: bold;
+.wrapper {
+  display: flex;
+  justify-content: center;
+ align-items:center ;
+  width: 70vw;
+gap: 5%;
+  margin: 20px ;
+  background: #393939;
+  padding: 20px;
+  border-radius: 15px;
 }
+
+
+.form-row2 label {
+  color: #FF6000;
+  margin-bottom: 20px;
+  font-size: 20px;
+  
+}
+.form-row2{
+  width: 55%;
+  position: relative;
+  left: 50px;
+}
+
+.form-row2 textarea {
+  font-size: 18px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid white ;
+  background-Color: #393939;
+  border-radius: 4px;
+  color:white;
+  box-sizing: border-box;
+  resize: none;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
 .btn-container {
-  flex: 3;
-  column-gap: 10px;
-  display: flex;
-}
-.btn-container > button {
-  width: 50%;
-  border: 0;
-  padding: 1em;
-  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-  border-radius: 10px;
-  color: white;
-  font-size: 1.2em;
-}
-
-#subscribe {
-  background-color: green;
-}
-#unsubscribe {
-  background-color: rgb(176, 6, 6);
-}
-
-#status {
-  background-color: lightcyan;
   text-align: center;
+}
+
+button {
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0275d8;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button[data-subscribed="true"] {
+  background-color: #d9534f; /* Red color for unsubscribe */
+}
+button[data-subscribed="true"]:hover {
+  background-color: #751c19; /* Red color for unsubscribe */
+}
+button[data-subscribed="false"] {
+  background-color: #5cb85c; /* Green color for subscribe */
+}
+button[data-subscribed="false"]:hover {
+  background-color: #336233; /* Green color for subscribe */
+}
+
+#status{
+  color: white;
   font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 5px;
+font-size: 25px;
+
+background-color: #FF6000;
 }

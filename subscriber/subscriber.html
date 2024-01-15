@@ -9,26 +9,28 @@
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   </head>
   <body>
+    <div class="titles">
     <h1>MQTT Temp Monitor</h1>
-    <h2>Please press the 'Subscribe' button to view the temperature, updated every 5 seconds.</h2>
-    <div class="line"></div>
-    <ul class="wrapper">
-      <li class="form-row">
-        <label for="status">Status</label>
-        <input type="text" id="status" readonly />
-      </li>
-      <li class="form-row">
-        <label for="message">Temperature</label>
+    <h2>Please press the 'Subscribe' button to view the temperature,
+      <br/>updated every 5 seconds.</h2>
+  </div>
+    <div class="wrapper">
+      <div class="form-row1">
+     
+        <p id="status"> Unsubscribed</p>
+      </div>
+      <div class="form-row2">
+        <label for="message">Temperatures</label>
         <textarea id="message" name="message" rows="10" readonly></textarea>
-      </li>
+      </div>
       
-      <li class="form-row">
-        <div class="btn-container">
-          <button type="button" id="subscribe">Subscribe</button>
-          <button type="button" id="unsubscribe">Unsubscribe</button>
-        </div>
-      </li>
-    </ul>
+     
+    </div>
+    <div class="form-row">
+      <div class="btn-container">
+        <button type="button" id="toggleSubscribe" data-subscribed="false">Subscribe</button>
+      </div>
+    </div>
     <script src="subscriber.js"></script>
   </body>
 </html>

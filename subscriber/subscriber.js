@@ -4,15 +4,21 @@ const topic = "temp"; // Set the topic as a constant
 window.addEventListener("load", (event) => {
   connectToBroker();
 
-  const subscribeBtn = document.querySelector("#subscribe");
-  subscribeBtn.addEventListener("click", function () {
-    subscribeToTopic();
-  });
+  
+  var toggleButton = document.getElementById('toggleSubscribe');
+  toggleButton.setAttribute('data-subscribed', false);
+    toggleButton.addEventListener('click', function() {
+        var isSubscribed = toggleButton.getAttribute('data-subscribed') === 'true';
+        toggleButton.setAttribute('data-subscribed', !isSubscribed);
+        toggleButton.textContent = isSubscribed ? 'Subscribe' : 'Unsubscribe';
 
-  const unsubscribeBtn = document.querySelector("#unsubscribe");
-  unsubscribeBtn.addEventListener("click", function () {
-    unsubscribeToTopic();
-  });
+        // Add your subscribe/unsubscribe logic here
+        if (isSubscribed) {
+          unsubscribeToTopic();
+        } else {
+          subscribeToTopic();
+        }
+    });
 });
 
 function connectToBroker() {
@@ -53,12 +59,13 @@ function connectToBroker() {
       "Received Message: " + message.toString() + "\nOn topic: " + topic
     );
     const messageTextArea = document.querySelector("#message");
-    messageTextArea.value += message + "\r\n";
+    
     // Check if message > seuil and trigger an alert
-    const parsedMessage = parseFloat(message);
+    var parsedMessage = parseFloat(message).toFixed(2);
     if (!isNaN(parsedMessage) && parsedMessage > seuil) {
-      alert(`Temperature alert! The temperature is greater than ${seuil}.`);
+      parsedMessage= parsedMessage +` Temperature alert! The temperature is greater than ${seuil}.`;
     }
+    messageTextArea.value += parsedMessage + "\r\n";
   });
 }
 
@@ -67,8 +74,7 @@ function subscribeToTopic() {
   console.log(`Subscribing to Topic: ${topic}`);
 
   mqttClient.subscribe(topic, { qos: 0 });
-  status.style.color = "green";
-  status.value = "SUBSCRIBED";
+  status.innerText = "Subscribed";
 }
 
 function unsubscribeToTopic() {
@@ -76,6 +82,5 @@ function unsubscribeToTopic() {
   console.log(`Unsubscribing to Topic: ${topic}`);
 
   mqttClient.unsubscribe(topic, { qos: 0 });
-  status.style.color = "red";
-  status.value = "UNSUBSCRIBED";
+  status.innerText = "Unsubscribed";
 }
